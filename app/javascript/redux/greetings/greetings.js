@@ -11,11 +11,11 @@ const initialState = [];
 
 export const fetchGreetingApi = () => async (dispatch) => {
   const returnValue = await Axios.get('/api/v1/greetings');
-  const greeting = returnValue.data.data.greeting.message
+  console.log('return value:', returnValue);
+  const greeting = returnValue.data.message
   dispatch(fetchGreeting(greeting));
 };
 
-// reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_GREETING:
